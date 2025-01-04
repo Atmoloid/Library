@@ -1,4 +1,5 @@
 const add = document.getElementById("add-books");
+const next = document.getElementById("next-button");
 
 function bookInfo(){
     const sheet = document.createElement("div");
@@ -49,7 +50,21 @@ function bookInfo(){
      pagesInput.style.border = "1px solid black";
      pagesInput.style.borderRadius = "5px";
  
-     
+     const nextBtn = document.createElement("button");
+     nextBtn.textContent = "Next";
+     nextBtn.id = "next-button";
+     nextBtn.style.backgroundColor = "black";
+     nextBtn.style.color = "white";
+     nextBtn.style.borderRadius = "5px";
+     nextBtn.style.width = "40%";
+     nextBtn.style.height = "10%";
+     nextBtn.style.position = "absolute";
+     nextBtn.style.bottom = "10px";
+     nextBtn.style.right = "10px";
+ 
+
+
+     sheet.appendChild(nextBtn);
      sheet.appendChild(bookNameInput);
      sheet.appendChild(authorInput);
      sheet.appendChild(pagesInput);
@@ -57,3 +72,7 @@ function bookInfo(){
 }
 
 add.addEventListener("click", bookInfo);
+
+function book(){
+    
+}
