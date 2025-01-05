@@ -70,9 +70,9 @@ function bookInfo(){
             Pages: pagesInput.value,
         };
 
-        bookContainer.push(Book); // Aggiungi l'oggetto all'array globale
-        console.log(bookContainer); // Debug: mostra l'array nella console
-        document.body.removeChild(sheet); // Rimuovi il foglio
+        bookContainer.push(Book); 
+        console.log(bookContainer); 
+        document.body.removeChild(sheet); 
     });
 
      sheet.appendChild(nextBtn);
