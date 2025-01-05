@@ -1,5 +1,6 @@
 const add = document.getElementById("add-books");
-const next = document.getElementById("next-button");
+
+const bookContainer = [];
 
 function bookInfo(){
     const sheet = document.createElement("div");
@@ -61,8 +62,18 @@ function bookInfo(){
      nextBtn.style.position = "absolute";
      nextBtn.style.bottom = "10px";
      nextBtn.style.right = "10px";
- 
 
+     nextBtn.addEventListener("click", () => {
+        const Book = {
+            Title: bookNameInput.value,
+            Author: authorInput.value,
+            Pages: pagesInput.value,
+        };
+
+        bookContainer.push(Book); // Aggiungi l'oggetto all'array globale
+        console.log(bookContainer); // Debug: mostra l'array nella console
+        document.body.removeChild(sheet); // Rimuovi il foglio
+    });
 
      sheet.appendChild(nextBtn);
      sheet.appendChild(bookNameInput);
@@ -72,7 +83,3 @@ function bookInfo(){
 }
 
 add.addEventListener("click", bookInfo);
-
-function book(){
-    
-}
