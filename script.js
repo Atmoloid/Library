@@ -1,5 +1,5 @@
 const add = document.getElementById("add-books");
-
+const booksContainer = document.getElementById("books-container");
 const bookContainer = [];
 
 function bookInfo(){
@@ -71,8 +71,8 @@ function bookInfo(){
         };
 
         bookContainer.push(Book); 
-        console.log(bookContainer); 
-        document.body.removeChild(sheet); 
+        renderBook(Book); 
+        document.body.removeChild(sheet);   
     });
 
      sheet.appendChild(nextBtn);
@@ -80,6 +80,42 @@ function bookInfo(){
      sheet.appendChild(authorInput);
      sheet.appendChild(pagesInput);
     document.body.appendChild(sheet);
+}
+
+function renderBook(book){
+    const bookSheet = document.createElement("div");
+    bookSheet.style.backgroundColor = "pink";
+    bookSheet.style.width = "150px";
+    bookSheet.style.height = "200px";
+    bookSheet.style.border = "1px solid black";
+    bookSheet.style.borderRadius = "5px";
+    bookSheet.style.margin = "10px";
+    bookSheet.style.display = "flex";
+    bookSheet.style.flexDirection = "column";
+    bookSheet.style.justifyContent = "space-between";
+
+    const titleBook = document.createElement("h3");
+    titleBook.textContent = `${book.Title}`;
+    titleBook.style.display = "flex";
+    titleBook.style.justifyContent = "center";
+    titleBook.style.alignItems = "start";
+    
+    const authorName = document.createElement("h3");
+    authorName.textContent = `${book.Author}`;
+    authorName.style.display = "flex";
+    authorName.style.justifyContent = "center";
+    authorName.style.alignItems = "center";
+
+    const pageNumber = document.createElement("h3");
+    pageNumber.textContent = `${book.Pages} pages`;
+    pageNumber.style.display = "flex";
+    pageNumber.style.justifyContent = "flex-end";
+    pageNumber.style.alignItems = "center";
+
+    bookSheet.appendChild(titleBook);
+    bookSheet.appendChild(authorName);
+    bookSheet.appendChild(pageNumber);
+    booksContainer.appendChild(bookSheet);
 }
 
 add.addEventListener("click", bookInfo);
