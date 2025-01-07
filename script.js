@@ -93,6 +93,13 @@ function renderBook(book){
     bookSheet.style.display = "flex";
     bookSheet.style.flexDirection = "column";
     bookSheet.style.justifyContent = "space-between";
+    bookSheet.style.alignItems = "center";
+    booksContainer.style.display = "grid";
+    booksContainer.style.gridTemplateColumns = "repeat(auto-fill, minmax(150px, 1fr))";
+    booksContainer.style.Gap = "10px"; 
+    booksContainer.style.justifyContent = "start"; 
+    booksContainer.style.alignItems = "start";
+    booksContainer.style.padding = "10px";
 
     const titleBook = document.createElement("h3");
     titleBook.textContent = `${book.Title}`;
@@ -112,10 +119,27 @@ function renderBook(book){
     pageNumber.style.justifyContent = "flex-end";
     pageNumber.style.alignItems = "center";
 
+    
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.style.backgroundColor = "white";
+    removeBtn.style.borderRadius = "5px";
+    removeBtn.style.width = "70px";
+    removeBtn.style.height = "30px";
+    removeBtn.style.display = "flex";
+    removeBtn.style.justifyContent = "center";
+    removeBtn.style.alignItems = "center";
+    
+    removeBtn.addEventListener("click", () => {
+        booksContainer.removeChild(bookSheet);
+    });
+
+    
     bookSheet.appendChild(titleBook);
     bookSheet.appendChild(authorName);
     bookSheet.appendChild(pageNumber);
     booksContainer.appendChild(bookSheet);
+    bookSheet.appendChild(removeBtn);
 }
 
 add.addEventListener("click", bookInfo);
